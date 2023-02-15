@@ -1,7 +1,7 @@
 # Личный проект «Кекстаграм»
 
 * Студент: [Илья Сидоренко](https://up.htmlacademy.ru/javascript/28/user/2145465).
-* Наставник: `Неизвестно`.
+* Наставник: [Дмитрий Железцов](https://up.htmlacademy.ru/profession/frontender/15/javascript/28/user/983299).
 
 ---
 
