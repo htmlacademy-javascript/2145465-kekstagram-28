@@ -43,9 +43,9 @@ function generationAddress(strStart, minLen, strPad) {
   if (strStart.length >= minLen) {
     return strStart;
   }else if (strStart.length < minLen) {
-    res = strPad.substr(0, diffLen) + strStart;
+    res = strPad.substring(0, diffLen) + strStart;
     while (res.length < minLen) {
-      res = strPad.substr(0, minLen - res.length) + res;
+      res = strPad.substring(0, minLen - res.length) + res;
     }
     return res;
   }
