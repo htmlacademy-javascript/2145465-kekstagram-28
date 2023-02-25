@@ -15,7 +15,7 @@ const COMMENT_AUTHOR_NAMES = [
   'Ольга',
   'Алексей',
   'Инокентий',
-]
+];
 
 const TEXT_MESAGES = [
   'Всё отлично!',
@@ -24,7 +24,7 @@ const TEXT_MESAGES = [
   'Моя бабушка случайно чихнула с фотоаппаратом в руках и у неё получилась фотография лучше.',
   'Я поскользнулся на банановой кожуре и уронил фотоаппарат на кота и у меня получилась фотография лучше.',
   'Лица у людей на фотке перекошены, как будто их избивают. Как можно было поймать такой неудачный момент?!'
-]
+];
 
 const TEXT_DESCRIPTION = [
   'Горы Кавказа',
@@ -47,7 +47,7 @@ const TEXT_DESCRIPTION = [
   'Как-то так',
   '...',
   'На концерте'
-]
+];
 
 const USER_AVATAR_MIN_ID = 1;
 const USER_AVATAR_MAX_ID = 6;
@@ -60,7 +60,7 @@ const COMMENT_ID_STEP = 5;
 
 
 const getRandomInteger = (min, max) => {
-  if ((typeof min !== 'number' && typeof max !== 'number')|| (min < 0 && max < 0)) {
+  if ((typeof min !== 'number' && typeof max !== 'number') || (min < 0 && max < 0)) {
     return null;
   }
   if (min < 0) {
@@ -80,13 +80,9 @@ const getRandomInteger = (min, max) => {
   return Math.floor(min + Math.random() * (max + 1 - min));
 };
 
-const getArrRandomElem = (arr) => {
-  return arr[getRandomInteger(0, arr.length - 1)];
-}
+const getArrRandomElem = (arr) => arr[getRandomInteger(0, arr.length - 1)];
 
-const checkStringLength = (comment = '', length = 0) => comment.length <= length;
-
-const shuffleArr = (arr) =>  [...arr].sort(() => Math.random() - 0.5);
+const shuffleArr = (arr) => [...arr].sort(() => Math.random() - 0.5);
 
 const generateId = function (start = 0, maxStep = 1) {
   let id = start;
@@ -106,7 +102,6 @@ const addCommentMessage = function () {
 
 const getCommentNextId = generateId (COMMENT_ID_START, COMMENT_ID_STEP);
 
-
 function addComment() {
   return {
     id: getCommentNextId(),
@@ -114,12 +109,12 @@ function addComment() {
     message: addCommentMessage(),
     name: getArrRandomElem(COMMENT_AUTHOR_NAMES),
   };
-};
+}
 
 const addDescription = () => {
   const descriptionCount = 1;
   return shuffleArr(TEXT_DESCRIPTION).slice(0, descriptionCount).join(' ');
-}
+};
 
 const addPost = function (_, index) {
   const id = index + 1;
@@ -133,6 +128,3 @@ const addPost = function (_, index) {
 };
 
 const posts = Array.from({ length: 25 }, addPost);
-console.log(posts);
-
-
