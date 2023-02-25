@@ -127,4 +127,5 @@ const addPost = function (_, index) {
   };
 };
 
-const posts = Array.from({ length: 25 }, addPost);
+const posts = () => Array.from({ length: 25 }, addPost);
+posts();
