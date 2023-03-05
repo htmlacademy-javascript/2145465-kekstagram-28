@@ -1,3 +1,8 @@
-import {posts} from './modules/posts.js';
+import {randomListPosts} from './modules/posts.js';
+import {renderUserPosts} from './modules/rendering-photos-other-users.js';
 
-posts();
+const usersPosts = randomListPosts();
+
+renderUserPosts(usersPosts);
+
+
