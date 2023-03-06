@@ -41,5 +41,6 @@ const addDescription = () => {
   return shuffleArr(TEXT_DESCRIPTION).slice(0, descriptionCount).join(' ');
 };
 
+const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getArrRandomElem, shuffleArr, generateId, getRandomInteger, getCommentNextId, addDescription};
+export {getArrRandomElem, shuffleArr, generateId, getRandomInteger, getCommentNextId, addDescription, isEscapeKey};

@@ -1,5 +1,7 @@
+import { renderFullPhoto } from './rendering-full-photos.js';
+
 const renderUserPosts = (userPosts) => {
-  const galeryUsersPhotos = document.querySelector('.pictures');
+  const galleryUsersPhotos = document.querySelector('.pictures');
   const templateUsersPhotos = document.querySelector('#picture').content.querySelector('.picture');
   const fragmentGaleryPhotos = document.createDocumentFragment();
 
@@ -11,11 +13,15 @@ const renderUserPosts = (userPosts) => {
     userPhoto.querySelector('.picture__img').src = userPost.url;
 
     fragmentGaleryPhotos.appendChild(userPhoto);
+
+    userPhoto.addEventListener('click', () => {
+      renderFullPhoto(userPost);
+    });
   });
 
-  galeryUsersPhotos.appendChild(fragmentGaleryPhotos);
+  galleryUsersPhotos.appendChild(fragmentGaleryPhotos);
 
-  return galeryUsersPhotos;
+  return galleryUsersPhotos;
 };
 
 export { renderUserPosts };
