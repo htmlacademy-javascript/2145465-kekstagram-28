@@ -1,12 +1,12 @@
 import { renderFullPhoto } from './rendering-full-photos.js';
 
 const renderUserPosts = (userPosts) => {
-  const galleryUsersPhotos = document.querySelector('.pictures');
-  const templateUsersPhotos = document.querySelector('#picture').content.querySelector('.picture');
+  const galleryUsersPhotosNode = document.querySelector('.pictures');
+  const templateUsersPhotosNode = document.querySelector('#picture').content.querySelector('.picture');
   const fragmentGaleryPhotos = document.createDocumentFragment();
 
   userPosts.forEach((userPost) => {
-    const userPhoto = templateUsersPhotos.cloneNode(true);
+    const userPhoto = templateUsersPhotosNode.cloneNode(true);
 
     userPhoto.querySelector('.picture__likes').textContent = userPost.likes;
     userPhoto.querySelector('.picture__comments').textContent = userPost.comments.length;
@@ -19,9 +19,9 @@ const renderUserPosts = (userPosts) => {
     });
   });
 
-  galleryUsersPhotos.appendChild(fragmentGaleryPhotos);
+  galleryUsersPhotosNode.appendChild(fragmentGaleryPhotos);
 
-  return galleryUsersPhotos;
+  return galleryUsersPhotosNode;
 };
 
 export { renderUserPosts };
