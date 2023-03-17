@@ -3,7 +3,7 @@ import { MAX_HASHTAG_COUNT, HASHTAG_REGEX } from './variables.js';
 
 const uploadFormNode = document.querySelector('.img-upload__form');
 const fieldHashtagNode = uploadFormNode.querySelector('.text__hashtags');
-const fieldDescrNode = uploadFormNode.querySelector('.text__description');
+const fieldDescribeNode = uploadFormNode.querySelector('.text__description');
 
 const hashtagPristine = new Pristine(uploadFormNode, {
   classTo: 'img-upload__field-wrapper',
@@ -42,7 +42,7 @@ hashtagPristine.addValidator(
   'Одинаковые хештеги!'
 );
 
-uploadFormNode.addEventListener('sumbit', () => {
+uploadFormNode.addEventListener('submit', () => {
   hashtagPristine.validate();
 });
 
@@ -53,7 +53,7 @@ fieldHashtagNode.addEventListener('keydown', (evt) => {
   }
 });
 
-fieldDescrNode.addEventListener('keydown', (evt) => {
+fieldDescribeNode.addEventListener('keydown', (evt) => {
   if(isEscapeKey(evt)) {
     evt.stopPropagation();
     document.activeElement.blur();
