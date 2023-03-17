@@ -88,4 +88,4 @@ function hidePhotoPopup() {
 
 buttonExitNode.addEventListener('click', hidePhotoPopup);
 
-export {renderFullPhoto, socialCommentsNode, socialOneCommentNode};
+export {renderFullPhoto, socialCommentsNode, socialOneCommentNode, pageBodyNode};
