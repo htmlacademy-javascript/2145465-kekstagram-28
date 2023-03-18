@@ -7,6 +7,7 @@ const imgPreviewNode = document.querySelector('.img-upload__preview');
 const smallImgPreviewNode = document.querySelectorAll('.effects__preview');
 const cancelUploadNode = document.querySelector('#upload-cancel');
 
+
 const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
@@ -45,3 +46,5 @@ imgInputNode.addEventListener('change', () => {
   const file = imgInputNode.files[0];
   displayImage(file);
 });
+
+export {imgPreviewNode};
