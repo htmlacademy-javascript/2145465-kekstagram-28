@@ -47,4 +47,4 @@ imgInputNode.addEventListener('change', () => {
   displayImage(file);
 });
 
-export {imgPreviewNode};
+export {openUserModal, closeUserModal, imgPreviewNode};

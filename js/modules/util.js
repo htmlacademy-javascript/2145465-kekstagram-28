@@ -1,4 +1,5 @@
-import {COMMENT_ID_START, COMMENT_ID_STEP, TEXT_DESCRIPTION} from './variables.js';
+const ALERT_SHOW_TIME = 5000;
+const MESSAGE_UPLOAD_SHOW_TIME = 1000;
 
 const getRandomInteger = (min, max) => {
   if ((typeof min !== 'number' && typeof max !== 'number') || (min < 0 && max < 0)) {
@@ -23,24 +24,50 @@ const getRandomInteger = (min, max) => {
 
 const getArrRandomElem = (arr) => arr[getRandomInteger(0, arr.length - 1)];
 
-const shuffleArr = (arr) => [...arr].sort(() => Math.random() - 0.5);
-
-const generateId = (start = 0, maxStep = 1) => {
-  let id = start;
-  const minStep = 1;
-  return () => {
-    id += getRandomInteger(minStep, maxStep);
-    return id;
-  };
-};
-
-const getCommentNextId = () => generateId(COMMENT_ID_START, COMMENT_ID_STEP);
-
-const addDescription = () => {
-  const descriptionCount = 1;
-  return shuffleArr(TEXT_DESCRIPTION).slice(0, descriptionCount).join(' ');
-};
-
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
-export {getArrRandomElem, shuffleArr, generateId, getRandomInteger, getCommentNextId, addDescription, isEscapeKey};
+const showAlert = (message) => {
+  const alertContainer = document.createElement('div');
+  alertContainer.style.zIndex = '100';
+  alertContainer.style.position = 'absolute';
+  alertContainer.style.left = '0';
+  alertContainer.style.down = '0';
+  alertContainer.style.right = '0';
+  alertContainer.style.padding = '30px 3px';
+  alertContainer.style.fontSize = '40px';
+  alertContainer.style.textAlign = 'center';
+  alertContainer.style.backgroundColor = '#fd2951';
+
+  alertContainer.textContent = message;
+
+  document.body.append(alertContainer);
+
+  setTimeout(() => {
+    alertContainer.remove();
+  }, ALERT_SHOW_TIME);
+};
+
+const showMessageUpload = () => {
+  const messageContainer = document.createElement('div');
+  messageContainer.style.zIndex = '100';
+  messageContainer.style.position = 'absolute';
+  messageContainer.style.left = '50%';
+  messageContainer.style.transform = 'translateX(-50%)';
+  messageContainer.style.top = '0';
+  messageContainer.style.borderRadius = '50px';
+  messageContainer.style.padding = '30px 30px';
+  messageContainer.style.margin = '450px 0 0 0';
+  messageContainer.style.fontSize = '40px';
+  messageContainer.style.textAlign = 'center';
+  messageContainer.style.backgroundColor = '#4178f4c2';
+
+  messageContainer.textContent = 'Фото успешно загружено!😸😸😸';
+
+  document.body.append(messageContainer);
+
+  setTimeout(() => {
+    messageContainer.remove();
+  }, MESSAGE_UPLOAD_SHOW_TIME);
+};
+
+export {getArrRandomElem, getRandomInteger, isEscapeKey, showAlert, showMessageUpload};
