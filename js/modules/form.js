@@ -1,4 +1,5 @@
 import { isEscapeKey } from './util.js';
+import { clearEnterData } from './edit-photo.js';
 
 const pageBodyNode = document.querySelector('body');
 const imgUploadPopupNode = document.querySelector('.img-upload__overlay');
@@ -27,6 +28,7 @@ const closeUserModal = () => {
   pageBodyNode.classList.remove('modal-open');
   document.addEventListener('keydown', onDocumentKeydown);
   imgInputNode.value = '';
+  clearEnterData();
 };
 
 const displayImage = (image) => {

@@ -3,7 +3,6 @@ import {
   EFFECTS_DATA,
   STEP_SCALE_IMAGE,
 } from './variables.js';
-import { imgPreviewNode } from './form.js';
 
 const imgControlSmallerNode = document.querySelector(
   '.scale__control--smaller'
@@ -11,10 +10,9 @@ const imgControlSmallerNode = document.querySelector(
 const imgControlBiggerNode = document.querySelector('.scale__control--bigger');
 const imgControlValueNode = document.querySelector('.scale__control--value');
 
-const imgNode = imgPreviewNode.querySelector('img');
+const imgNode = document.querySelector('.img-upload__preview img');
 const effectsRadioNodes = document.querySelectorAll('.effects__radio');
-
-imgControlValueNode.value = `${DEFAULT_SCALE_IMAGE}%`;
+const imageUploadForm = document.querySelector('#upload-select-image');
 
 const sliderNode = document.querySelector('.effect-level__slider');
 const sliderDataNode = document.querySelector('.effect-level__value');
@@ -22,6 +20,15 @@ const sliderDataNode = document.querySelector('.effect-level__value');
 const sliderEffectValueNode = document.querySelector(
   '.img-upload__effect-level'
 );
+
+const clearEnterData = () => {
+  imgControlValueNode.value = `${DEFAULT_SCALE_IMAGE}%`;
+  imgNode.style = 'transform: scale(1)';
+
+  imageUploadForm.reset();
+  imgNode.style.filter = 'none';
+  imgNode.src = '';
+};
 
 noUiSlider.create(sliderNode, {
   range: {
@@ -144,3 +151,5 @@ sliderNode.noUiSlider.on('update', () => {
     }
   }
 });
+
+export {clearEnterData};

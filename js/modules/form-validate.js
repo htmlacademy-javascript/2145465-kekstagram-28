@@ -58,7 +58,6 @@ const blockSubmitButton = () => {
 const unblockSubmitButton = () => {
   submitButton.disabled = false;
   submitButton.textContent = SubmitButtonText.IDLE;
-  uploadFormNode.reset();
 };
 
 const setUserFormSubmit = (onSuccess) => {
@@ -97,4 +96,4 @@ fieldDescribeNode.addEventListener('keydown', (evt) => {
   }
 });
 
-export {setUserFormSubmit};
+export {setUserFormSubmit, uploadFormNode};
