@@ -22,8 +22,6 @@ const getRandomInteger = (min, max) => {
   return Math.floor(min + Math.random() * (max + 1 - min));
 };
 
-const getArrRandomElem = (arr) => arr[getRandomInteger(0, arr.length - 1)];
-
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
 const showAlert = (message) => {
@@ -56,7 +54,6 @@ const showMessageUpload = () => {
   messageContainer.style.top = '0';
   messageContainer.style.borderRadius = '50px';
   messageContainer.style.padding = '30px 30px';
-  messageContainer.style.margin = '450px 0 0 0';
   messageContainer.style.fontSize = '40px';
   messageContainer.style.textAlign = 'center';
   messageContainer.style.backgroundColor = '#4178f4c2';
@@ -70,4 +67,4 @@ const showMessageUpload = () => {
   }, MESSAGE_UPLOAD_SHOW_TIME);
 };
 
-export {getArrRandomElem, getRandomInteger, isEscapeKey, showAlert, showMessageUpload};
+export { getRandomInteger, isEscapeKey, showAlert, showMessageUpload};
