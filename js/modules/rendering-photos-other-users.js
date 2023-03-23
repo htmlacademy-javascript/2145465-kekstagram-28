@@ -4,6 +4,7 @@ const renderUserPosts = (userPosts) => {
   const galleryUsersPhotosNode = document.querySelector('.pictures');
   const templateUsersPhotosNode = document.querySelector('#picture').content.querySelector('.picture');
   const fragmentGaleryPhotos = document.createDocumentFragment();
+  const filterPostsNode = document.querySelector('.img-filters');
 
   userPosts.forEach((userPost) => {
     const userPhoto = templateUsersPhotosNode.cloneNode(true);
@@ -20,7 +21,7 @@ const renderUserPosts = (userPosts) => {
   });
 
   galleryUsersPhotosNode.appendChild(fragmentGaleryPhotos);
-
+  filterPostsNode.classList.remove('img-filters--inactive');
   return galleryUsersPhotosNode;
 };
 
