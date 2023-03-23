@@ -24,6 +24,8 @@ const getRandomInteger = (min, max) => {
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
+const shuffleArr = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
@@ -31,7 +33,7 @@ const showAlert = (message) => {
   alertContainer.style.left = '0';
   alertContainer.style.down = '0';
   alertContainer.style.right = '0';
-  alertContainer.style.padding = '30px 3px';
+  alertContainer.style.padding = '30px 5px';
   alertContainer.style.fontSize = '40px';
   alertContainer.style.textAlign = 'center';
   alertContainer.style.backgroundColor = '#fd2951';
@@ -67,4 +69,14 @@ const showMessageUpload = () => {
   }, MESSAGE_UPLOAD_SHOW_TIME);
 };
 
-export { getRandomInteger, isEscapeKey, showAlert, showMessageUpload};
+function debounce (callback, timeoutDelay) {
+  let timeoutId;
+
+  return (...rest) => {
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(() => callback.apply(this, rest), timeoutDelay);
+  };
+}
+
+
+export { getRandomInteger, isEscapeKey, showAlert, showMessageUpload, debounce, shuffleArr};
