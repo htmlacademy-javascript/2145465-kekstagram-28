@@ -24,6 +24,8 @@ const getRandomInteger = (min, max) => {
 
 const isEscapeKey = (evt) => evt.key === 'Escape';
 
+const shuffleArr = (arr) => [...arr].sort(() => Math.random() - 0.5);
+
 const showAlert = (message) => {
   const alertContainer = document.createElement('div');
   alertContainer.style.zIndex = '100';
@@ -67,7 +69,7 @@ const showMessageUpload = () => {
   }, MESSAGE_UPLOAD_SHOW_TIME);
 };
 
-function debounce (callback, timeoutDelay = 500) {
+function debounce (callback, timeoutDelay) {
   let timeoutId;
 
   return (...rest) => {
@@ -77,4 +79,4 @@ function debounce (callback, timeoutDelay = 500) {
 }
 
 
-export { getRandomInteger, isEscapeKey, showAlert, showMessageUpload, debounce};
+export { getRandomInteger, isEscapeKey, showAlert, showMessageUpload, debounce, shuffleArr};
