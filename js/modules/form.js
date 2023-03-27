@@ -1,5 +1,6 @@
 import { isEscapeKey } from './util.js';
 import { clearEnterData } from './edit-photo.js';
+import { FILE_FORMATS } from './variables.js';
 
 const pageBodyNode = document.querySelector('body');
 const imgUploadPopupNode = document.querySelector('.img-upload__overlay');
@@ -46,7 +47,13 @@ cancelUploadNode.addEventListener('click', () => {
 imgInputNode.addEventListener('change', () => {
   openUserModal();
   const file = imgInputNode.files[0];
-  displayImage(file);
+  const fileName = file.name.toLowerCase();
+
+  const matches = FILE_FORMATS.some((it) => fileName.endsWith(it));
+
+  if (!matches) {
+    displayImage(file);
+  }
 });
 
 export {openUserModal, closeUserModal, imgPreviewNode};

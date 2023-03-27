@@ -78,5 +78,4 @@ function debounce (callback, timeoutDelay) {
   };
 }
 
-
 export { getRandomInteger, isEscapeKey, showAlert, showMessageUpload, debounce, shuffleArr};

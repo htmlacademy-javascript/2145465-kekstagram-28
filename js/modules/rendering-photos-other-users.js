@@ -15,8 +15,8 @@ const renderUserPosts = (userPosts) => {
   userPosts.forEach((userPost) => {
     const userPhoto = templateUsersPhotosNode.cloneNode(true);
 
-    userPhoto.querySelector('.picture__likes').textContent = userPost.likes;
     userPhoto.querySelector('.picture__comments').textContent = userPost.comments.length;
+    userPhoto.querySelector('.picture__likes').textContent = userPost.likes;
     userPhoto.querySelector('.picture__img').src = userPost.url;
 
     fragmentGaleryPhotos.appendChild(userPhoto);
