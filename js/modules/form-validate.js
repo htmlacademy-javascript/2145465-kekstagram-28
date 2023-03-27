@@ -63,7 +63,6 @@ const unblockSubmitButton = () => {
 const setUserFormSubmit = (onSuccess) => {
   uploadFormNode.addEventListener('submit', (evt) => {
     evt.preventDefault();
-
     const isValid = hashtagPristine.validate();
     if (isValid) {
       blockSubmitButton();

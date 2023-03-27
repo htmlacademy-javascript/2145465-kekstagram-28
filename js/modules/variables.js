@@ -32,6 +32,8 @@ const STEP_SCALE_IMAGE = 25;
 const RANDOM_PICS_COUNT = 10;
 const RERENDER_DELAY = 500;
 
+const FILE_FORMATS = ['jpg', 'jpeg', 'png'];
+
 export {
   COMMENT_NUMBERS_TO_SHOW,
   HASHTAG_REGEX,
@@ -41,4 +43,5 @@ export {
   STEP_SCALE_IMAGE,
   RANDOM_PICS_COUNT,
   RERENDER_DELAY,
+  FILE_FORMATS,
 };

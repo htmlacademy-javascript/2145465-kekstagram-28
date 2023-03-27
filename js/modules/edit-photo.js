@@ -24,10 +24,9 @@ const sliderEffectValueNode = document.querySelector(
 const clearEnterData = () => {
   imgControlValueNode.value = `${DEFAULT_SCALE_IMAGE}%`;
   imgNode.style = 'transform: scale(1)';
-
-  imageUploadForm.reset();
   imgNode.style.filter = 'none';
   imgNode.src = '';
+  imageUploadForm.reset();
 };
 
 noUiSlider.create(sliderNode, {
