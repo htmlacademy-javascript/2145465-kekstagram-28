@@ -1,7 +1,8 @@
 import { renderFullPhoto } from './rendering-full-photos.js';
-import { debounce, shuffleArr, showAlert } from './util.js';
+import { debounce, shuffleArr } from './util.js';
 import { RANDOM_PICS_COUNT, RERENDER_DELAY } from './variables.js';
 import { getData } from './api.js';
+import { showAlert } from './messages.js';
 
 
 const galleryUsersPhotosNode = document.querySelector('.pictures');

@@ -24,8 +24,11 @@ const sliderEffectValueNode = document.querySelector(
 const clearEnterData = () => {
   imgControlValueNode.value = `${DEFAULT_SCALE_IMAGE}%`;
   imgNode.style = 'transform: scale(1)';
-  imgNode.style.filter = 'none';
+  imgNode.removeAttribute('class');
+  imgNode.classList.add('effects__preview--none');
+  sliderEffectValueNode.classList.add('hidden');
   imgNode.src = '';
+  imgNode.style.removeProperty('filter');
   imageUploadForm.reset();
 };
 

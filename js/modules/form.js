@@ -56,4 +56,4 @@ imgInputNode.addEventListener('change', () => {
   }
 });
 
-export {openUserModal, closeUserModal, imgPreviewNode};
+export {openUserModal, closeUserModal, imgPreviewNode, onDocumentKeydown};
