@@ -1,6 +1,10 @@
-import { showAlert, isEscapeKey, showMessageUpload } from './util.js';
+import { isEscapeKey } from './util.js';
 import { MAX_HASHTAG_COUNT, HASHTAG_REGEX } from './variables.js';
 import { postData } from './api.js';
+import { openUploadError, openUploadSuccess } from './messages.js';
+import { closeUserModal } from './form.js';
+import { clearEnterData } from './edit-photo.js';
+
 
 const uploadFormNode = document.querySelector('.img-upload__form');
 const fieldHashtagNode = uploadFormNode.querySelector('.text__hashtags');
@@ -60,22 +64,19 @@ const unblockSubmitButton = () => {
   submitButton.textContent = SubmitButtonText.IDLE;
 };
 
-const setUserFormSubmit = (onSuccess) => {
+const setUserFormSubmit = () => {
   uploadFormNode.addEventListener('submit', (evt) => {
     evt.preventDefault();
     const isValid = hashtagPristine.validate();
     if (isValid) {
       blockSubmitButton();
       postData(new FormData(evt.target))
-        .then(onSuccess)
+        .then(openUploadSuccess)
         .then(() => {
-          showMessageUpload();
+          closeUserModal();
+          clearEnterData();
         })
-        .catch(
-          (err) => {
-            showAlert(err.message);
-          }
-        )
+        .catch(openUploadError)
         .finally(unblockSubmitButton);
     }
   });
